@@ -1,0 +1,69 @@
+List all databases in the mongo shell
+show dbs
+Create Database
+use manali
+
+Know the current database
+db
+
+to know the number of collections in database
+show collections
+
+to clear the screen
+cls
+
+To create the collection in db
+db.createCollection("<CollectionName>")
+db.createCollection("users")
+
+To insert a record in collection
+db.<CollectionName>.insertOne({<record json>})
+db.Users.insertOne({"id":"1","name":"Manali1"})
+db.Users.insertOne({"id":"2","name":"Tom","age":"25"})
+
+To find the records in the collection
+db.<CollectionName>.find()
+db.Users.find()
+
+To put in a pretty format
+db.<CollectionName>.find().pretty()
+db.Users.find().pretty()
+
+_id is the system defined id used by the mongoDB
+
+To find the limited records. Like you have 1000 records and you want to find only 10 records
+db.<CollectionName>.find().limit(10)
+db.Users.find().limit(1)
+db.Users.find().pretty().limit(1)
+
+To find the number of records in a collection
+db.<CollectionName>.count()
+db.<CollectionName>.countDocuments()
+db.<CollectionName>.estimatedDocumentCount()
+db.Users.count()
+db.Users.countDocuments
+db.Users.estimatedDocumentCount()
+
+To find a particular record with system _id
+db.<CollectionName>.find({"_id":ObjectId('6790e6d3c38581cc74465e4b')})
+db.Users.find({"_id":ObjectId('6790e6d3c38581cc74465e4b')})
+
+Admin Commands to see the size, dataSize, Bytes it is storing inside the memory
+db.<CollectionName>.stats()
+db.<CollectionName>.dataSize();
+db.<CollectionName>.storageSize();
+--To know the total number of bytes for collection, data and indexes
+db.<CollectionName>.totalSize();
+db.Users.totalSize();
+db.Users.dataSize();
+db.Users.stats()
+db.Users.storageSize();
+
+To drop the collection
+db.<CollectionName>.drop()
+db.Users.drop()
+
+To exit from the shell
+exit
+
+
